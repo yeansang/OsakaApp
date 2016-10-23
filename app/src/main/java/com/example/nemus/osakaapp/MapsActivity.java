@@ -74,8 +74,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Uri uri = Uri.parse("http://www.osaka-info.jp/osp/kr/facility/facility.php?id="+marker.getTitle());
-                Intent it  = new Intent(Intent.ACTION_VIEW,uri);
+                /*Uri uri = Uri.parse("http://www.osaka-info.jp/osp/kr/facility/facility.php?id="+marker.getTitle());
+                Intent it  = new Intent(Intent.ACTION_VIEW,uri);*/
+                Intent it = new Intent(MapsActivity.this, Info_viewer.class);
+                it.putExtra("id",marker.getTitle());
                 startActivity(it);
             }
         });
